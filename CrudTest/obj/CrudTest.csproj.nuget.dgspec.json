@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/zarkus/languages/csharp/CrudTest/CrudTest.csproj": {}
+    "/home/zarkus/languages/csharp/CrudApp/CrudTest/CrudTest.csproj": {}
   },
   "projects": {
-    "/home/zarkus/languages/csharp/CrudTest/CrudTest.csproj": {
+    "/home/zarkus/languages/csharp/CrudApp/CrudTest/CrudTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/zarkus/languages/csharp/CrudTest/CrudTest.csproj",
+        "projectUniqueName": "/home/zarkus/languages/csharp/CrudApp/CrudTest/CrudTest.csproj",
         "projectName": "CrudTest",
-        "projectPath": "/home/zarkus/languages/csharp/CrudTest/CrudTest.csproj",
+        "projectPath": "/home/zarkus/languages/csharp/CrudApp/CrudTest/CrudTest.csproj",
         "packagesPath": "/home/zarkus/.nuget/packages/",
-        "outputPath": "/home/zarkus/languages/csharp/CrudTest/obj/",
+        "outputPath": "/home/zarkus/languages/csharp/CrudApp/CrudTest/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/zarkus/.nuget/NuGet/NuGet.Config"
@@ -41,6 +41,16 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[7.0.10, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
