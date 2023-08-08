@@ -1,31 +1,60 @@
 namespace CrudTest.Services;
 
 using CrudTest.Models;
+using CrudTest.Repositories;
 
-public class PessoaService : ServiceCollection {
-    public PessoaService() {}
+public interface IPessoaService {
+    string Greet();
+    List<Pessoa> ListarPessoas();
+    Pessoa ObterPessoaPorId(long id);
+    string CriarPessoa(Pessoa pessoa);
+    string AtualizarPessoa(Pessoa pessoa);
+    string ExcluirPessoa(long id);
+}
+
+public class PessoaService : IPessoaService {
+    private readonly IPessoaRepository _repository;
+
+    public PessoaService(IPessoaRepository repository) {
+        _repository = repository;
+    }
 
     public string Greet() {
         return "Hello from Service Layer";
     }
 
-    public Pessoa CriarPessoa(Pessoa pessoa) {
-        return pessoa;
-    }
-
     public List<Pessoa> ListarPessoas() {
-        return new List<Pessoa>();
+        return _repository.ListarPessoas();
     }
 
-    public long ObterPessoaPorId(long id) {
-        return id;
+    public Pessoa ObterPessoaPorId(long id) {
+        return _repository.ObterPessoaPorId(id);
     }
 
-    public Pessoa AtualizarPessoa(Pessoa pessoa) {
-        return pessoa;
+    public string CriarPessoa(Pessoa pessoa) {
+        try {
+            _repository.CriarPessoa(pessoa);
+            return "User created successfully";
+        } catch (Exception error) {
+            return $"Error: {error}";
+        }
     }
 
-    public long ExcluirPessoa(long id) {
-        return id;
+    public string AtualizarPessoa(Pessoa pessoa) {
+        try {
+            _repository.AtualizarPessoa(pessoa);;
+            return "User updated successfully";
+        } catch (Exception error) {
+            return $"Error: {error}";
+        }
+    }
+
+    public string ExcluirPessoa(long id) {
+        try {
+            _repository.ExcluirPessoa(id);
+            return "User removed successfully";
+        } catch (Exception error) {
+            return $"Error: {error}";
+        }
     }
 }
